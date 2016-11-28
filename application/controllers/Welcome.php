@@ -20,7 +20,10 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('dashboard');
+        $data ['main_content'] = 'dashboard';
+        $this->load->view('layout/MainLayout', $data);
+
+		//$this->load->view('dashboard');
         //$this->load->view('Account/Login');
         //redirect('Account/Login');
 	}
