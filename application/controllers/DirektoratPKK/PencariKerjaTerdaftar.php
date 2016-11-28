@@ -13,16 +13,16 @@ class PencariKerjaTerdaftar extends CI_Controller {
     function index($offset=0)
     {
         $config['total_rows'] = $this->DetailPKByProvinsiModel->totalDetailPKByProvinsi();
-        $config['base_url'] = base_url()."DirektoratPKK/PencariKerjaTerdaftar";
+        $config['base_url'] = base_url()."DirektoratPKK/PencariKerjaTerdaftar/Index";
         $config['per_page'] = 5;
-        $config['uri_segment'] = '2';
+        $config['uri_segment'] = '4';
 
         $config['full_tag_open'] = '<div class="dataTables_paginate paging_bootstrap_full_number" id="sample_1_paginate">
                                                         <ul class="pagination" style="visibility: visible;">';
         $config['full_tag_close'] = '</ul></div>';
 
         //$config['first_link'] = '« First';
-        $config['first_tag_open'] = '<li class="prev disabled">';
+        $config['first_tag_open'] = '<li class="prev">';
         $config['first_tag_close'] = '</li>';
 
         //$config['last_link'] = 'Last »';
@@ -34,7 +34,7 @@ class PencariKerjaTerdaftar extends CI_Controller {
         $config['next_tag_close'] = '</li>';
 
         //$config['prev_link'] = '← Previous';
-        $config['prev_tag_open'] = '<li class="prev disabled">';
+        $config['prev_tag_open'] = '<li class="prev">';
         $config['prev_tag_close'] = '</li>';
 
         $config['cur_tag_open'] = '<li class="active"><a href="">';
@@ -43,8 +43,10 @@ class PencariKerjaTerdaftar extends CI_Controller {
         $config['num_tag_open'] = '<li class="page">';
         $config['num_tag_close'] = '</li>';
         $this->pagination->initialize($config);
-
-        $query = $this->DetailPKByProvinsiModel->getDetailPKByProvinsi(5,$this->uri->segment(2));
+        //$page = $this->uri->segment(3);
+        //print_r($page);
+        $query = $this->DetailPKByProvinsiModel->getDetailPKByProvinsi(5,$this->uri->segment(4));
+        //$query = $this->DetailPKByProvinsiModel->getDetailPKByProvinsi(5,$page);
         $data['DetailPKByProvinsiModel'] = null;
         if($query){
             $data['DetailPKByProvinsiModel'] =  $query;

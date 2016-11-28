@@ -18,6 +18,8 @@ class DetailPKByProvinsiModel extends  CI_Model
         $this->db->join("provinsi b", "a.idprovinsi = b.idprovinsi", "left");
         $query = $this->db->get();
         return $query->result();
+
+
     }
 
     public function totalDetailPKByProvinsi() {
