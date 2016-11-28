@@ -91,7 +91,7 @@ class PencariKerjaTerdaftar extends CI_Controller {
                 $this->DetailPKByProvinsiModel->AddDetailPKByProvinsi($dataInput);
             }
         }
-
+        redirect('DirektoratPKK/PencariKerjaTerdaftar');
     }
 
     function UploadExcelByJenisKelamin(){
@@ -124,7 +124,7 @@ class PencariKerjaTerdaftar extends CI_Controller {
             );
             $this->detailpkbyjeniskelaminModel->Add($dataInput);
         }
-
+        redirect('DirektoratPKK/PencariKerjaTerdaftar');
     }
 }
 
